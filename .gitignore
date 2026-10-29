@@ -1,0 +1,95 @@
+# ==============================================================================
+# Git Ignore Configuration - E-Commerce & Retail Analytics Project
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Python & Bytecode
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ------------------------------------------------------------------------------
+# 2. Virtual Environments
+# ------------------------------------------------------------------------------
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# ------------------------------------------------------------------------------
+# 3. Jupyter Notebooks & Checkpoints
+# ------------------------------------------------------------------------------
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# ------------------------------------------------------------------------------
+# 4. Large Datasets (> 1 Juta Baris / File Besar yang Melebihi Batas GitHub 100MB)
+# Data dihasilkan otomatis oleh data_generator/synthetic_generator.py
+# ------------------------------------------------------------------------------
+data/raw/*
+!data/raw/.gitkeep
+
+data/clean/*
+!data/clean/.gitkeep
+
+# Abaikan file data transaksi besar di folder benchmark, tapi simpan ringkasan hasil & grafik
+data/benchmark/transactions.csv
+data/benchmark/transactions.jsonl
+data/benchmark/transactions.parquet
+data/benchmark/*.parquet
+
+# File referensi eksternal Excel
+*.xlsx
+*.xls
+
+# ------------------------------------------------------------------------------
+# 5. IDE & Editor Specific Files
+# ------------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ------------------------------------------------------------------------------
+# 6. OS & System Files
+# ------------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# ------------------------------------------------------------------------------
+# 7. PySpark & Hadoop Temporary Files (Milestone 2 Preparation)
+# ------------------------------------------------------------------------------
+metastore_db/
+derby.log
+*.crc
+.spark-staging/
+_temporary/
+spark-warehouse/

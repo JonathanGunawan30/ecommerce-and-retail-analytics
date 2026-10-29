@@ -1,0 +1,4 @@
+format,file_size_mb,read_seconds,aggregation_seconds,total_seconds,rows_read,size_vs_csv_pct,speedup_vs_csv
+CSV,96.16,0.137,0.059,0.196,1088666,100.0,1.0
+JSONL,249.82,0.385,0.057,0.442,1088666,259.8,0.44
+Parquet,24.3,0.103,0.058,0.16,1088666,25.3,1.23
