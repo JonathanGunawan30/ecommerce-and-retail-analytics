@@ -44,20 +44,18 @@ venv.bak/
 *-checkpoint.ipynb
 
 # ------------------------------------------------------------------------------
-# 4. Large Datasets (> 1 Juta Baris / File Besar yang Melebihi Batas GitHub 100MB)
-# Data dihasilkan otomatis oleh data_generator/synthetic_generator.py
+# 4. Datasets & External Files
+# File data > 100MB disimpan dan dilacak dalam format kompresi .zip agar mematuhi batasan GitHub.
+# File uncompressed diekstrak secara lokal dan diabaikan dari tracking Git.
 # ------------------------------------------------------------------------------
-data/raw/*
-!data/raw/.gitkeep
-
-data/clean/*
-!data/clean/.gitkeep
-
-# Abaikan file data transaksi besar di folder benchmark, tapi simpan ringkasan hasil & grafik
+data/raw/transactions_dirty.csv
+data/clean/transactions.csv
 data/benchmark/transactions.csv
 data/benchmark/transactions.jsonl
-data/benchmark/transactions.parquet
-data/benchmark/*.parquet
+
+# Selalu lacak file dataset .zip dan Parquet
+!data/**/*.zip
+!data/**/*.parquet
 
 # File referensi eksternal Excel
 *.xlsx

@@ -72,14 +72,25 @@ ecommerce-retail-analytics/
 │   └── synthetic_generator.py                  # Script pembuat data sintetis + injeksi 8% data kotor
 ├── notebooks/
 │   └── 01_cleansing_and_storage_benchmark.ipynb # Notebook audit, data cleansing, dan benchmark format file
-├── data/                                        # Dibuat otomatis saat generator/notebook dijalankan
-│   ├── raw/                                     # Dataset mentah dengan 8% anomali
-│   ├── clean/                                   # Dataset bersih (CSV, JSONL, dan Parquet)
-│   └── benchmark/                               # File pengujian dan grafik benchmark
-├── requirements/
-│   └── requirements.md                          # Spesifikasi proyek akhir
+├── data/                                        # Dataset hasil generate (disimpan sebagai dokumentasi & bukti tugas)
+│   ├── raw/                                     # Dataset mentah dengan 8% anomali (*.csv, *.jsonl, *.zip)
+│   ├── clean/                                   # Dataset bersih (*.csv, *.jsonl, *.parquet, *.zip)
+│   └── benchmark/                               # File pengujian, hasil benchmark, dan grafik (*.parquet, *.zip)
+├── scripts/
+│   └── unpack_data.py                           # Script utilitas untuk mengekstrak file dataset .zip secara otomatis
 └── README.md
 ```
+
+> [!NOTE]
+> **Dokumentasi & Bukti Dataset (> 1 Juta Baris / Batas 100 MB GitHub):**
+> Seluruh file dataset hasil generasi data sintetis disertakan di dalam repository ini sebagai **bukti dokumentasi tugas proyek**.
+> Untuk mematuhi batas ukuran file GitHub (< 100 MB), file-file berskala besar (> 1.000.000 baris atau > 100 MB) seperti:
+> - `data/raw/transactions_dirty.csv` (~106 MB) $\rightarrow$ dikompresi ke `transactions_dirty.csv.zip` (~29.5 MB)
+> - `data/clean/transactions.csv` (~100.8 MB) $\rightarrow$ dikompresi ke `transactions.csv.zip` (~27.9 MB)
+> - `data/benchmark/transactions.csv` (~100.8 MB) $\rightarrow$ dikompresi ke `transactions.csv.zip` (~27.9 MB)
+> - `data/benchmark/transactions.jsonl` (~262 MB) $\rightarrow$ dikompresi ke `transactions.jsonl.zip` (~33.9 MB)
+> 
+> File berformat **Parquet** (`*.parquet`) dan dataset ukuran kecil/menengah dilacak langsung tanpa kompresi zip.
 
 ---
 
@@ -90,12 +101,19 @@ ecommerce-retail-analytics/
 pip install pandas numpy pyarrow matplotlib openpyxl jupyter
 ```
 
-### 2. Menjalankan Generator Data Sintetis (Opsional / Mandiri via CLI)
+### 2. Mengekstrak Dataset Terkompresi (.zip)
+Untuk mengekstrak seluruh dataset hasil generate yang sudah ada di repository:
+```bash
+python scripts/unpack_data.py
+```
+
+### 3. Menjalankan Generator Data Sintetis (Opsional / Mandiri via CLI)
+Jika ingin menghasilkan ulang (*regenerate*) data dari awal:
 ```bash
 python data_generator/synthetic_generator.py
 ```
 
-### 3. Menjalankan Notebook Cleansing & Storage Benchmark
+### 4. Menjalankan Notebook Cleansing & Storage Benchmark
 Buka dan jalankan seluruh sel secara berurutan pada:
 ```text
 notebooks/01_cleansing_and_storage_benchmark.ipynb
