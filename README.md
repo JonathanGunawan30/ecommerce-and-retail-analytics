@@ -8,8 +8,7 @@ The project aims to design and implement a scalable data processing pipeline for
 
 ## 🎥 Presentation Videos
 
-- **Milestone 1 (Mid-Project Presentation):** [Insert YouTube Unlisted / Google Drive Link]
-- **Milestone 2 (Final Project Presentation):** [To be added in Milestone 2]
+- **Milestone 1 – Mid-Project Presentation:** [Watch on YouTube](https://youtu.be/VmfCSnNGyo4)
 
 ---
 
